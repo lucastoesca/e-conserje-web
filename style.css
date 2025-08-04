@@ -1,0 +1,383 @@
+/* ==================== VARIABLES CSS ==================== */
+:root {
+    --header-height: 3.5rem;
+
+    /* Colores */
+    --primary-color: #0A2E5E; /* Azul corporativo oscuro */
+    --secondary-color: #008DD5; /* Azul más brillante para enlaces/acentos */
+    --accent-color: #F2C14E; /* Amarillo/Dorado para botones de acción */
+    --light-bg-color: #f7f9fc;
+    --text-color: #333;
+    --text-color-light: #666;
+    --white-color: #fff;
+    --border-color: #ddd;
+
+    /* Tipografía */
+    --body-font: 'Montserrat', sans-serif;
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 2rem;
+    --normal-font-size: 1rem;
+    
+    /* Z-index */
+    --z-fixed: 100;
+}
+
+/* ==================== BASE ==================== */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--white-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3, h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==================== LAYOUT ==================== */
+.container {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: 6rem 0 2rem;
+}
+
+.section__title {
+    font-size: var(--h2-font-size);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section__description {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color-light);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bg-light {
+    background-color: var(--light-bg-color);
+}
+
+/* ==================== HEADER & NAV ==================== */
+.header {
+    width: 100%;
+    background-color: var(--white-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    transition: box-shadow .3s;
+}
+
+.nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav__list {
+    display: flex;
+    column-gap: 2rem;
+}
+
+.nav__link {
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: color .3s;
+}
+
+.nav__link:hover {
+    color: var(--secondary-color);
+}
+
+.nav__link-button {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    transition: background-color .3s;
+}
+
+.nav__link-button:hover {
+    background-color: #e0b044;
+    color: var(--primary-color);
+}
+
+/* Sticky Header */
+.header-scrolled {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ==================== HERO ==================== */
+.hero {
+    padding-top: calc(var(--header-height) + 4rem);
+    padding-bottom: 4rem;
+    background-color: var(--light-bg-color);
+}
+
+.hero__container {
+    text-align: center;
+}
+
+.hero__title {
+    font-size: var(--h1-font-size);
+    margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+    font-size: 1.25rem;
+    color: var(--text-color-light);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 1rem 2.5rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* ==================== QUIÉNES SOMOS ==================== */
+.content__container {
+    max-width: 800px;
+}
+
+.team__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.team__member {
+    text-align: center;
+}
+
+.team__img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--border-color);
+}
+
+.team__member h3 {
+    margin-bottom: 0.5rem;
+}
+
+.team__member--expert {
+    grid-column: 1 / -1;
+    background-color: var(--light-bg-color);
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--secondary-color);
+}
+
+/* ==================== SERVICIOS ==================== */
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service__card {
+    background-color: var(--white-color);
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform .3s;
+}
+
+.service__card:hover {
+    transform: translateY(-5px);
+}
+
+.service__card h3 {
+    margin-bottom: 1rem;
+}
+
+/* ==================== CASOS DE ÉXITO ==================== */
+.testimonial {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonial__text {
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--text-color-light);
+}
+
+.testimonial__author {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* ==================== RECURSOS / BLOG ==================== */
+.blog__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.blog__post {
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.blog__post h4 {
+    margin-bottom: 0.75rem;
+}
+
+.link {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+/* ==================== CONTACTO ==================== */
+.contact__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.contact__info p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.contact__info a {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.form__group {
+    margin-bottom: 1.5rem;
+}
+
+.form__group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form__group input,
+.form__group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+.form__group input:focus,
+.form__group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.form__response {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+.form__response.success {
+    color: green;
+}
+
+.form__response.error {
+    color: red;
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media screen and (max-width: 768px) {
+    :root {
+        --h1-font-size: 2rem;
+        --h2-font-size: 1.5rem;
+    }
+
+    .nav__menu {
+        /* Aquí iría la lógica para un menú hamburguesa si se implementara */
+        display: none; 
+    }
+
+    .team__grid,
+    .contact__container {
+        grid-template-columns: 1fr;
+    }
+    
+    .section {
+        padding: 4rem 0 2rem;
+    }
+    
+    .contact__info {
+        text-align: center;
+    }
+}
