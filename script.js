@@ -65,3 +65,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
+/* ==================== LÓGICA DEL MENÚ MÓVIL ==================== */
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const navMenu = document.getElementById('nav-menu'),
+        navToggle = document.getElementById('nav-toggle'),
+        navLinks = document.querySelectorAll('.nav__link'); // Seleccionamos todos los enlaces
+
+  // Función para mostrar/ocultar el menú
+  const toggleMenu = () => {
+    navMenu.classList.toggle('show-menu');
+  };
+
+  // 1. Mostrar u ocultar menú al hacer clic en el botón hamburguesa
+  if (navToggle) {
+    navToggle.addEventListener('click', toggleMenu);
+  }
+
+  // 2. (Opcional pero recomendado) Ocultar el menú al hacer clic en un enlace
+  // Esto es útil para que el menú se cierre automáticamente después de seleccionar una sección.
+  const linkAction = () => {
+    navMenu.classList.remove('show-menu');
+  }
+  navLinks.forEach(link => link.addEventListener('click', linkAction));
+
+});

@@ -149,7 +149,7 @@ img {
 
 .nav__link-button:hover {
     background-color: var(--detail-color);
-    color: var(--light-bg-color); */
+    color: var(--light-bg-color);
 }
 
 /* Sticky Header */
@@ -220,7 +220,7 @@ img {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
-    border: 3px solid var(--border-color);
+    border: 3px solid var(--accent-color);
 }
 
 .team__member h3 {
@@ -373,6 +373,13 @@ img {
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
+
+.nav__toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
     :root {
         --h1-font-size: 2rem;
@@ -380,8 +387,33 @@ img {
     }
 
     .nav__menu {
-        /* Aquí iría la lógica para un menú hamburguesa si se implementara */
-        display: none; 
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        height: 100vh;
+        padding: 4rem 0 0 3rem;
+        background-color: rgba(10, 46, 94, 0.95);
+        backdrop-filter: blur(10px);
+        transition: right 0.4s ease-in-out;
+    }
+
+    .nav__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2.5rem;
+    }
+
+    .nav__link {
+        color: #fff;
+    }
+
+    .nav__toggle {
+        display: flex; /* O flex, si usas la versión con spans */
+    }
+
+    .show-menu {
+        right: 0; /* Mueve el menú a su posición visible dentro de la pantalla */
     }
 
     .team__grid,
