@@ -3,10 +3,11 @@
     --header-height: 3.5rem;
 
     /* Colores */
-    --primary-color: #0A2E5E; /* Azul corporativo oscuro */
+    --primary-color: #003c79; /* Azul corporativo oscuro */
     --secondary-color: #008DD5; /* Azul más brillante para enlaces/acentos */
     /*--accent-color: #F2C14E; /* Amarillo/Dorado para botones de acción */
-    --accent-color: #008080;
+    --accent-color: #ffa801;
+    --detail-color: #40ab43;
     --light-bg-color: #f7f9fc;
     --ivory-bg-color:#fff9ed;
     --text-color: #333;
@@ -115,11 +116,11 @@ img {
     font-size: 1.5rem;
     display: flex;
     align-items: center;
-    gap: 10px
+    gap: 5px
 }
 
 #logo-img {
-    height: 2rem;
+    height: 2.5rem;
     width: auto;
 }
 
@@ -135,12 +136,11 @@ img {
 }
 
 .nav__link:hover {
-    color: var(--secondary-color);
+    color: var(--detail-color);
 }
 
 .nav__link-button {
     background-color: var(--accent-color);
-    /*color: var(--primary-color);*/
     color: var(--light-bg-color);
     padding: 0.75rem 1.5rem;
     border-radius: 2rem;
@@ -148,8 +148,8 @@ img {
 }
 
 .nav__link-button:hover {
-    background-color: #e0b044;
-    color: var(--primary-color);
+    background-color: var(--detail-color);
+    color: var(--light-bg-color); */
 }
 
 /* Sticky Header */
@@ -232,7 +232,7 @@ img {
     background-color: var(--light-bg-color);
     padding: 2rem;
     border-radius: 8px;
-    border-left: 5px solid var(--secondary-color);
+    border-left: 5px solid var(--detail-color);
 }
 
 /* ==================== SERVICIOS ==================== */
@@ -307,7 +307,7 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: center;
+    align-items: start;
 }
 
 .contact__info p {
