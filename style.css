@@ -369,6 +369,7 @@ img {
 
 .eterlab-signature {
     color: var(--text-color-light);
+    padding-top: 0.5rem;
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
