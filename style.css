@@ -381,19 +381,17 @@ img {
   cursor: pointer;
 }
 
-/* Usamos una Media Query para aplicar estilos SOLO en pantallas pequeñas (móviles) */
 @media screen and (max-width: 768px) {
-  /* 1. Ocultamos el menú original y lo preparamos para que aparezca desde la derecha */
   .nav__menu {
-    position: fixed; /* Posición fija respecto a la ventana */
+    position: fixed;
     top: 0;
-    right: -100%; /* Lo movemos fuera de la pantalla hacia la derecha */
-    width: 60%; /* Ocupará el 60% del ancho de la pantalla */
-    height: 100vh; /* Ocupará el 100% de la altura */
+    right: -100%;
+    width: 60%;
+    height: 100vh;
     padding: 4rem 0 0 3rem;
-    background-color: rgba(10, 46, 94, 0.95); /* Un fondo semi-transparente del color primario */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque para el fondo */
-    transition: right 0.4s ease-in-out; /* Transición suave para la animación */
+    background-color: rgba(10, 46, 94, 0.95);
+    backdrop-filter: blur(10px);
+    transition: right 0.4s ease-in-out;
   }
 
   /* Los elementos de la lista ahora se verán en vertical */
