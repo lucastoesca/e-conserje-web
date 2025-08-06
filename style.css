@@ -9,7 +9,6 @@
     --accent-color: #ffa801;
     --detail-color: #40ab43;
     --light-bg-color: #f7f9fc;
-    --ivory-bg-color:#fff9ed;
     --text-color: #333;
     --text-color-light: #666;
     --white-color: #fff;
@@ -190,12 +189,13 @@ img {
     border-radius: 2rem;
     font-weight: 700;
     font-size: 1.1rem;
-    transition: transform .3s, box-shadow .3s;
+    transition: transform .3s, box-shadow .3s, background-color .3s;
 }
 
 .button:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    background-color: var(--detail-color);
 }
 
 /* ==================== QUIÉNES SOMOS ==================== */
@@ -220,7 +220,7 @@ img {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
-    border: 3px solid var(--accent-color);
+    border: 3px solid var(--detail-color);
 }
 
 .team__member h3 {
@@ -232,7 +232,7 @@ img {
     background-color: var(--light-bg-color);
     padding: 2rem;
     border-radius: 8px;
-    border-left: 5px solid var(--detail-color);
+    border-left: 5px solid var(--accent-color);
 }
 
 /* ==================== SERVICIOS ==================== */
@@ -374,45 +374,86 @@ img {
 
 /* ==================== RESPONSIVE DESIGN ==================== */
 
-/* Por defecto, el botón de hamburguesa no se ve en escritorio */
 .nav__toggle {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
+    position: relative;
+    display: none;
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 200;
+}
+
+.nav__toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: transform 0.4s, opacity 0.4s, background-color .3s;
+}
+
+.nav__toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: var(--light-bg-color);
+}
+
+.nav__toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav__toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: var(--light-bg-color);
 }
 
 @media screen and (max-width: 768px) {
-  .nav__menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 60%;
-    height: 100vh;
-    padding: 4rem 0 0 3rem;
-    background-color: rgba(10, 46, 94, 0.95);
-    backdrop-filter: blur(10px);
-    transition: right 0.4s ease-in-out;
-  }
+    :root {
+        --h1-font-size: 2rem;
+        --h2-font-size: 1.5rem;
+    }
 
-  /* Los elementos de la lista ahora se verán en vertical */
-  .nav__list {
-    display: flex;
-    flex-direction: column;
-    row-gap: 2.5rem; /* Espacio entre cada elemento del menú */
-  }
-  
-  .nav__link {
-    color: #fff; /* Cambiamos el color de los enlaces a blanco para que se vean en el fondo oscuro */
-  }
+    .nav__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        height: 100vh;
+        padding: 4rem 0 0 3rem;
+        background-color: rgba(10, 46, 94, 0.95);
+        backdrop-filter: blur(10px);
+        transition: right 0.4s ease-in-out;
+        z-index: 150;
+    }
 
-  /* 2. Mostramos el botón de hamburguesa */
-  .nav__toggle {
-    display: block; /* O flex, si usas la versión con spans */
-  }
-  
-  /* 3. La clase que hará la magia: .show-menu */
-  /* Esta clase se añadirá con JavaScript */
-  .show-menu {
-    right: 0; /* Mueve el menú a su posición visible dentro de la pantalla */
-  }
+    .nav__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2.5rem; 
+    }
+
+    .nav__link {
+        color: #fff; 
+    }
+    
+    .nav__toggle {
+        display: flex;
+    }
+
+    .show-menu {
+        right: 0; 
+    }
+
+    .team__grid,
+    .contact__container {
+        grid-template-columns: 1fr;
+    }
+    
+    .section {
+        padding: 4rem 0 2rem;
+    }
+    
+    .contact__info {
+        text-align: center;
+    }
 }
