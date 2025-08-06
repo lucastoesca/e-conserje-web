@@ -374,58 +374,47 @@ img {
 
 /* ==================== RESPONSIVE DESIGN ==================== */
 
+/* Por defecto, el botón de hamburguesa no se ve en escritorio */
 .nav__toggle {
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
+/* Usamos una Media Query para aplicar estilos SOLO en pantallas pequeñas (móviles) */
 @media screen and (max-width: 768px) {
-    :root {
-        --h1-font-size: 2rem;
-        --h2-font-size: 1.5rem;
-    }
+  /* 1. Ocultamos el menú original y lo preparamos para que aparezca desde la derecha */
+  .nav__menu {
+    position: fixed; /* Posición fija respecto a la ventana */
+    top: 0;
+    right: -100%; /* Lo movemos fuera de la pantalla hacia la derecha */
+    width: 60%; /* Ocupará el 60% del ancho de la pantalla */
+    height: 100vh; /* Ocupará el 100% de la altura */
+    padding: 4rem 0 0 3rem;
+    background-color: rgba(10, 46, 94, 0.95); /* Un fondo semi-transparente del color primario */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque para el fondo */
+    transition: right 0.4s ease-in-out; /* Transición suave para la animación */
+  }
 
-    .nav__menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 60%;
-        height: 100vh;
-        padding: 4rem 0 0 3rem;
-        background-color: rgba(10, 46, 94, 0.95);
-        backdrop-filter: blur(10px);
-        transition: right 0.4s ease-in-out;
-    }
+  /* Los elementos de la lista ahora se verán en vertical */
+  .nav__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem; /* Espacio entre cada elemento del menú */
+  }
+  
+  .nav__link {
+    color: #fff; /* Cambiamos el color de los enlaces a blanco para que se vean en el fondo oscuro */
+  }
 
-    .nav__list {
-        display: flex;
-        flex-direction: column;
-        row-gap: 2.5rem;
-    }
-
-    .nav__link {
-        color: #fff;
-    }
-
-    .nav__toggle {
-        display: flex; /* O flex, si usas la versión con spans */
-    }
-
-    .show-menu {
-        right: 0; /* Mueve el menú a su posición visible dentro de la pantalla */
-    }
-
-    .team__grid,
-    .contact__container {
-        grid-template-columns: 1fr;
-    }
-    
-    .section {
-        padding: 4rem 0 2rem;
-    }
-    
-    .contact__info {
-        text-align: center;
-    }
+  /* 2. Mostramos el botón de hamburguesa */
+  .nav__toggle {
+    display: block; /* O flex, si usas la versión con spans */
+  }
+  
+  /* 3. La clase que hará la magia: .show-menu */
+  /* Esta clase se añadirá con JavaScript */
+  .show-menu {
+    right: 0; /* Mueve el menú a su posición visible dentro de la pantalla */
+  }
 }
